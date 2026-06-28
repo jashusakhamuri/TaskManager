@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks — Advanced Task Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <div>
+          <h1>Tasks</h1>
+          <p class="brand-sub">A small desk for everything you need to do</p>
+        </div>
+      </div>
+      <button id="darkModeToggle" class="theme-btn" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+      <section class="panel">
+        <h2 class="panel-title">New task</h2>
+
+        <label for="taskTitle">Title</label>
+        <input type="text" id="taskTitle" placeholder="What needs doing?">
+
+        <label for="taskDescription">Notes</label>
+        <textarea id="taskDescription" rows="3" placeholder="Add a detail or two (optional)"></textarea>
+
+        <div class="field-row">
+          <div class="field-col">
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div class="field-col">
+            <label for="dueDate">Due date</label>
+            <input type="date" id="dueDate">
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="addTaskButton" class="btn btn-primary">Add task</button>
+          <button id="updateTaskButton" class="btn btn-warning">Save changes</button>
+        </div>
+      </section>
+
+      <section class="panel stats-panel">
+        <h2 class="panel-title">Overview</h2>
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <span class="stat-number" id="totalTasks">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-number stat-done" id="completedTasks">0</span>
+            <span class="stat-label">Done</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-number stat-pending" id="pendingTasks">0</span>
+            <span class="stat-label">Pending</span>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- ================= MAIN COLUMN ================= -->
+    <section class="main-col">
+
+      <section class="panel toolbar-panel">
+        <input type="text" id="searchBox" placeholder="Search your tasks…">
+        <select id="filter">
+          <option value="All">All tasks</option>
+          <option value="Completed">Completed</option>
+          <option value="Pending">Pending</option>
+          <option value="High">High priority</option>
+          <option value="Medium">Medium priority</option>
+          <option value="Low">Low priority</option>
+        </select>
+      </section>
+
+      <section class="panel list-panel">
+        <div class="list-header">
+          <h2 class="panel-title">My tasks</h2>
+          <button id="clearCompleted" class="btn btn-danger-ghost">Clear completed</button>
+        </div>
+
+        <ul id="taskContainer" class="task-grid"></ul>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Built with HTML, CSS &amp; JavaScript — no frameworks, no server.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
